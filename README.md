@@ -106,4 +106,5 @@ VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
   计算每1M区间内断点（5',3'）出现频数与CPG岛数目的相关性
     
   
-
+## 4 novoBreak
+still working on it ...
