@@ -23,6 +23,9 @@ Command：`liftOver <your.hg19.bed> hg19ToHg38.over.chain <out.hg38.bed> <out.hg
 UCSC genome browser ---> table browser 下载hg19的CPG岛数据（暂无hg38），输出为bed格式。\
 同样需要liftOver工具转换坐标。
 
+### 1.3 GC含量数据
+尚未下载，需要将原始数据（没5bpGC含量）重新计算为每1M bp。
+
 ## 2 Matchclips 
 Matchclips2：基于long soft clips的CNV断点计算方法 ,安装及说明：`https://github.com/yhwu/matchclips2`\
 运行命令：
@@ -89,4 +92,9 @@ rm $CNV.anno_input $CNV.anno.hg38*;done
 - 其中CNV断点所处的基因座位是比较重要的信息
 ## 4 prostatic CNV breakpoint 相关性分析
 ### 4.1 数据预处理
+- 将所有结果合并为一个文件，并在最后加入ID列。
+### 4.2 RStudio
+VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
+`> hist(subset(result,fraction<=0.001)$fraction,breaks = 200)`
+
 
