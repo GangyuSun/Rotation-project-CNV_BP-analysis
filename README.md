@@ -2,7 +2,7 @@
 
 ## 1 prostatic数据准备
 
-建立前列腺癌wes数据软链接：\
+学会建立前列腺癌wes数据软链接：
 ```
 tail -n +2 /public/home/liuxs/biodata/gdc/wes/gdc_manifest.2018-10-17.txt |\
 head -n 5| \
@@ -29,6 +29,23 @@ Matchclips2：基于long soft clips的CNV断点计算方法 ,安装及说明：`
 ```
 for sample in /$PATH/*.bam;do matchclips -t $cpu -f $ref -b $sample -o /public/home/zhangjing1/Documents/prostatic_CNV_BP/`basename $sample`".mc";done
 ```
+- 结果的简单处理：
+  bam文件建立索引：
+  ```$cat bamf.txt
+
+  1.bam
+  2.bam
+  ...
+  1000.bam
+  ```
+  cnv断点结果文件建立索引：
+  ```
+  cat bamf.txt | awk '{print $1".mc"}' > cnvf.txt
+  ```
+  计算CNV断点样本的overlap：
+  ```
+  cnvtable -L 10000 -cnvf cnvf.txt -O 0.5 -o overlap.txt
+  ```
 
 ## 3 ANNOVAR
 利用ANNOVAR脚本可以对断点文件进行注释
