@@ -86,5 +86,7 @@ perl /public/home/zhangjing1/software/matchclips2/src/append_anno.pl $CNV $CNV.a
 rm $CNV.anno_input $CNV.anno.hg38*;done
 ```
 输出信息格式：`https://brb.nci.nih.gov/seqtools/colexpanno.html`
+- 其中CNV断点所处的基因座位是比较重要的信息
 ## 4 prostatic CNV breakpoint 相关性分析
+### 4.1 数据预处理
 
