@@ -95,7 +95,15 @@ rm $CNV.anno_input $CNV.anno.hg38*;done
 - 将所有结果合并为一个文件，并在最后加入ID列。
 ### 4.2 RStudio
 VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
-- 计算比例绘成直方图|
+- 计算比例绘成直方图\
 `> hist(subset(result,fraction<=0.001)$fraction,breaks = 200)`
 
+- 表观数据与断点的关联分析\
+  已知断点（5'，3'），统计其在表观注释区间出现频数统计\
+  已知表观修饰区间，统计其内出现断点（5', 3'）的频数统计\
+  计算每1M区间内断点（5',3'）出现频数与表观修饰的相关性
+- CPG岛与断点的关联分析\
+  计算每1M区间内断点（5',3'）出现频数与CPG岛数目的相关性
+    
+  
 
