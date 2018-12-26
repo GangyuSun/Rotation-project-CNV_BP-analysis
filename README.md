@@ -95,6 +95,7 @@ rm $CNV.anno_input $CNV.anno.hg38*;done
 - 将所有结果合并为一个文件，并在最后加入ID列。
 ### 4.2 RStudio
 VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
+- 计算比例绘成直方图|
 `> hist(subset(result,fraction<=0.001)$fraction,breaks = 200)`
 
 
