@@ -97,7 +97,7 @@ rm $CNV.anno_input $CNV.anno.hg38*;done
 VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
 - 计算比例绘成直方图\
 `> hist(subset(result,fraction<=0.001)$fraction,breaks = 200)`
-![]https://github.com/SunssAria/Rotation-project-CNV_BP-analysis/blob/master/plot_zoom_png.png?raw=true
+![](https://github.com/SunssAria/Rotation-project-CNV_BP-analysis/blob/master/plot_zoom_png.png?raw=true)
 
 - 表观数据与断点的关联分析\
   已知断点（5'，3'），统计其在表观注释区间出现频数统计\
