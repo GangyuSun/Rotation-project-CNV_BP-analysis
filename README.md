@@ -3,7 +3,7 @@
 ## 1 prostatic数据准备
 
 学会建立前列腺癌wes数据软链接：
-```
+```shell
 tail -n +2 /public/home/liuxs/biodata/gdc/wes/gdc_manifest.2018-10-17.txt |\
 head -n 5| \
 awk 'BEGIN{OFS="\t";}{info=$2; gsub(/\.bam/,"",info); \
@@ -29,13 +29,13 @@ UCSC genome browser ---> table browser 下载hg19的CPG岛数据（暂无hg38）
 ## 2 Matchclips 
 Matchclips2：基于long soft clips的CNV断点计算方法 ,安装及说明：`https://github.com/yhwu/matchclips2`\
 运行命令：
-```
+```shell
 for sample in /$PATH/*.bam;do matchclips -t $cpu -f $ref -b $sample -o /public/home/zhangjing1/Documents/prostatic_CNV_BP/`basename $sample`".mc";done
 ```
-- 结果的简单处理：
+- 结果的简单处理：\
   bam文件建立索引：
-  ```$cat bamf.txt
-
+  ```
+  $cat bamf.txt
   1.bam
   2.bam
   ...
@@ -54,7 +54,7 @@ for sample in /$PATH/*.bam;do matchclips -t $cpu -f $ref -b $sample -o /public/h
 利用ANNOVAR脚本可以对断点文件进行注释
 
 数据库导入：
-```
+```shell
 Perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene humandb/
 # -buildver 表示version
 # -downdb 下载数据库的指令
@@ -81,7 +81,7 @@ ANNOVAR使用.avinput格式，如以上代码所示，该格式每列以tab分�
 ANNOVAR主要也是依靠这5处信息对数据库进行比对，进而注释变异。
 ```
 脚本运行示例如下：
-```
+```shell
 for CNV in /public/home/zhangjing1/Documents/prostatic_CNV_BP/*.mc;\
 do awk '{OFS="\t"; print $1,$2,$3,0,0,$0}' $CNV > $CNV.anno_input;\
 perl $ANNOVAR/table_annovar.pl $CNV.anno_input $ANNOVAR/humandb/ -buildver hg38 -out $CNV.anno -remove -protocol refGene,phastConsElements100way,genomicSuperDups,esp6500siv2_all,1000g2015aug_all,avsnp150,ljb26_all -operation g,r,r,f,f,f,f -nastring NA -csvout;\
