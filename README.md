@@ -99,6 +99,9 @@ VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
 `> hist(subset(result,fraction<=0.001)$fraction,breaks = 200)`
 ![](https://github.com/SunssAria/Rotation-project-CNV_BP-analysis/blob/master/plot_zoom_png.png?raw=true)
 
+- 按每个染色体标准化
+![](https://github.com/SunssAria/Rotation-project-CNV_BP-analysis/blob/master/chrom.normalize.bar.png?raw=true)
+
 - 表观数据与断点的关联分析\
   已知断点（5'，3'），统计其在表观注释区间出现频数统计\
   已知表观修饰区间，统计其内出现断点（5', 3'）的频数统计\
