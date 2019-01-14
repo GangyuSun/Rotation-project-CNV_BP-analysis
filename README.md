@@ -112,3 +112,29 @@ VSHunter:::cnv_getLengthFraction 计算CNV长度与所在臂的比例
   
 ## 4 novoBreak
 still working on it ...
+### 安装及运行
+- 安装后确保将其加入到环境变量
+软件的常规使用：作者已经写过一个很完善的工作流程，包括预测和过滤等所有的必须步骤，命令如下：
+```
+bash <A_PATH>/novoBreak/run_novoBreak.sh <novoBreak_exe_dir> <ref> <tumor_bam> <normal_bam> <n_CPUs:INT> [outputdir:-PWD]
+```
+- 注意 
+novobreak运行时还需要normal、tumor的samtools index 文件以及 reference 的bwa index 文件，确保他们都在你的工作目录下。
+- 常见报错
+如果在运行时出现类似下面的错误，一般原因就是你的软件路径设置出现问题，可以通过重新git clone 重新设置变量来解决，最后确保你的index文件建立没有问题 ：
+```
+Program exit normally
+[M::bam2fq_mainloop] processed 9822 reads
+begin kmer2id ...
+kmer2id takes 0 seconds
+begin id2pair...
+id2pair takes 1 seconds
+begin sorting ids...
+sorting ids takes 0 seconds
+begin output results...
+Outputting results takes 1 seconds
+Finished
+[E::bwa_idx_load] fail to locate the index files
+No such file or directory at /public/home/zhangjing1/software/novoBreak/nb_distribution/infer_bp_v4.pl line 13.
+```
+
