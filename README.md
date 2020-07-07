@@ -2,7 +2,7 @@
 
 ## 1 prostatic数据准备
 
-    学会建立前列腺癌wes数据软链接：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学会建立前列腺癌wes数据软链接：
 ```shell
 tail -n +2 /public/home/liuxs/biodata/gdc/wes/gdc_manifest.2018-10-17.txt |\
 head -n 5| \
